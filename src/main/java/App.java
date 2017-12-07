@@ -1,3 +1,5 @@
+import data.FileService;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -14,19 +16,9 @@ public class App {
     }
 
     private static void loadFile() {
-        URI path = null;
-        try {
-            path = Thread.currentThread().getContextClassLoader().getResource("gifts.csv").toURI();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        List<String> lines = new LinkedList<>();
-        try {
-            lines = Files.readAllLines(Paths.get(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-       System.out.println(lines.size());
+        List<String> lines = new FileService().readFileFromResourceFolder("gifts.csv");
+        System.out.println(lines.get(0));
+        System.out.println(lines.get(1));
+        System.out.println(lines.get(2));
     }
 }
