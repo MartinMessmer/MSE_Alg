@@ -3,6 +3,7 @@ public class Gift {
     private double latitude;
     private double longitude;
     private int weight;
+    private int tourID;
 
     public int getId() {
         return id;
@@ -34,5 +35,13 @@ public class Gift {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public int getTourID() {
+        return tourID;
+    }
+
+    public void setTourID(int tourID) {
+        this.tourID = tourID;
     }
 }
