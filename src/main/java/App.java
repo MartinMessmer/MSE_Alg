@@ -16,7 +16,7 @@ public class App {
     private static void loadFile() {
         URI path = null;
         try {
-            path = Thread.currentThread().getContextClassLoader().getResource("gitfs.csv").toURI();
+            path = Thread.currentThread().getContextClassLoader().getResource("gifts.csv").toURI();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
