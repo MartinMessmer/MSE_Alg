@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/teamrocket.iml" filepath="$PROJECT_DIR$/.idea/modules/teamrocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/teamrocket_main.iml" filepath="$PROJECT_DIR$/.idea/modules/teamrocket_main.iml" group="teamrocket" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/teamrocket_test.iml" filepath="$PROJECT_DIR$/.idea/modules/teamrocket_test.iml" group="teamrocket" />
+    </modules>
+  </component>
+</project>
