@@ -1,4 +1,7 @@
-package models;
+package data;
+
+import models.Coordinate;
+import models.Gift;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +17,13 @@ public class GiftsLoader {
 
     private Gift createGifts(String text){
         String[] textSplitted = text.split(",");
+        Coordinate coordinate = new Coordinate(
+                Double.parseDouble(textSplitted[1]), // lat
+                Double.parseDouble(textSplitted[2]) // long
+        );
         return new Gift(
                 Integer.parseInt(textSplitted[0]), // id
-                Double.parseDouble(textSplitted[1]), // lat
-                Double.parseDouble(textSplitted[2]), // long
+                coordinate,
                 Double.parseDouble(textSplitted[3]), // weight
                 0); // tourId
     }

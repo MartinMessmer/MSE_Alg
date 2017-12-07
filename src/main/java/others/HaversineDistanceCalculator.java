@@ -1,9 +1,16 @@
-public class Utilities {
+package others;
+
+import models.Coordinate;
+
+public class HaversineDistanceCalculator {
 
     private static final int EARTH_RADIUS = 6371; // Approx Earth radius in KM
 
-    public static double HaversineDistance(double startLat, double startLong,
-                                           double endLat, double endLong) {
+    public static double HaversineDistance(Coordinate start, Coordinate end) {
+        double startLat = start.latitude;
+        double startLong = start.longitude;
+        double endLat = end.latitude;
+        double endLong = end.longitude;
 
         double dLat  = Math.toRadians((endLat - startLat));
         double dLong = Math.toRadians((endLong - startLong));

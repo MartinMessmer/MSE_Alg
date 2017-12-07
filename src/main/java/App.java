@@ -1,6 +1,7 @@
 import data.FileService;
 import models.Gift;
-import models.GiftsLoader;
+import data.GiftsLoader;
+import others.HaversineDistanceCalculator;
 
 import java.util.List;
 
