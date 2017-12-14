@@ -1,6 +1,6 @@
 package data;
 
-import models.Coordinate;
+import Gift.Coordinate;
 
 public class Constraints {
     public static final double SleighsWeight = 10.0;

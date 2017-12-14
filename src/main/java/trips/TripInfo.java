@@ -1,4 +1,4 @@
-package models;
+package trips;
 
 public class TripInfo {
     public TripInfo(double distance, double weariness, double weight) {

@@ -1,7 +1,7 @@
 package data;
 
-import models.Coordinate;
-import models.Gift;
+import Gift.Coordinate;
+import Gift.Gift;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +25,6 @@ public class GiftsLoader {
                 Integer.parseInt(textSplitted[0]), // id
                 coordinate,
                 Double.parseDouble(textSplitted[3]), // weight
-                0); // tourId
+                0); // tripId
     }
 }

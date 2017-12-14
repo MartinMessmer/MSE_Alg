@@ -1,4 +1,4 @@
-package models;
+package Gift;
 
 public class Coordinate {
     public final double latitude;

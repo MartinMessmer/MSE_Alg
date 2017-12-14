@@ -1,6 +1,6 @@
 package others;
 
-import models.Coordinate;
+import Gift.Coordinate;
 
 public class HaversineDistanceCalculator {
 

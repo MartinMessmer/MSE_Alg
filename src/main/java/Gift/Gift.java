@@ -1,4 +1,4 @@
-package models;
+package Gift;
 
 public class Gift {
     public final int id;
@@ -12,4 +12,9 @@ public class Gift {
         this.weight = weight;
         this.tourId = tourId;
     }
+
+    public int TourId(){
+        return tourId;
+    }
+    public int GiftId() { return id;}
 }
