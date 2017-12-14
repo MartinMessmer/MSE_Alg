@@ -1,6 +1,7 @@
 package others;
 
 import Gift.Coordinate;
+import net.jafama.FastMath;
 
 public class HaversineDistanceCalculator {
 
@@ -12,19 +13,19 @@ public class HaversineDistanceCalculator {
         double endLat = end.latitude;
         double endLong = end.longitude;
 
-        double dLat  = Math.toRadians((endLat - startLat));
-        double dLong = Math.toRadians((endLong - startLong));
+        double dLat  = FastMath.toRadians((endLat - startLat));
+        double dLong = FastMath.toRadians((endLong - startLong));
 
-        startLat = Math.toRadians(startLat);
-        endLat   = Math.toRadians(endLat);
+        startLat = FastMath.toRadians(startLat);
+        endLat   = FastMath.toRadians(endLat);
 
-        double a = sinPow(dLat) + Math.cos(startLat) * Math.cos(endLat) * sinPow(dLong);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double a = sinPow(dLat) + FastMath.cos(startLat) * FastMath.cos(endLat) * sinPow(dLong);
+        double c = 2 * FastMath.atan2(FastMath.sqrt(a), FastMath.sqrt(1 - a));
 
         return EARTH_RADIUS * c; // <-- d
     }
 
     private static double sinPow(double val) {
-        return Math.pow(Math.sin(val / 2), 2);
+        return Math.pow(FastMath.sin(val / 2), 2);
     }
 }
