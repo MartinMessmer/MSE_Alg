@@ -8,4 +8,9 @@ public class Coordinate {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
+    public double getSquaredEuclidianDistanceTo(Coordinate c2){
+        // No Sqrt for performance purpose
+        return Math.pow(c2.latitude - this.latitude,2) + Math.pow(c2.longitude - this.longitude, 2);
+    }
 }
