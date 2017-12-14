@@ -2,12 +2,15 @@ package algorithm;
 
 import Gift.Coordinate;
 import Gift.Gift;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+import data.Constraints;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import trips.Trip;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class FindCentroidAlgorithm {
+public class FindCentroidAlgorithm extends Algorithm{
     private final int iterations;
 
     /**
@@ -16,6 +19,24 @@ public class FindCentroidAlgorithm {
      */
     public FindCentroidAlgorithm(int iterations){
         this.iterations = iterations;
+    }
+
+    @Override
+    public void Run() {
+        halfingGroup(gifts);
+
+        System.out.println("******************* Start Find Centroid Algorithm *************");
+    }
+
+    private void halfingGroup(List<Gift> gifts){
+        double weight = gifts.stream().mapToDouble(g -> g.weight).sum();
+        if (weight <= Constraints.SleighsMaxLoad){
+            trips.add(new Trip(trips.size(), gifts));
+        } else {
+            Centroid[] centroids = calculateTwoCentroids(gifts);
+            halfingGroup(centroids[0].gifts);
+            halfingGroup(centroids[1].gifts);
+        }
     }
 
     /**

@@ -22,9 +22,15 @@ public class Trip {
     }
 
     public Trip(int id, List<Gift> gifts) {
-        this.gifts = gifts;
+        this.gifts = new LinkedList<>();
+        //this.gifts = gifts;
         this.id = id;
         this.weight = Constraints.SleighsWeight;
+        for( int i = 0 ; i < gifts.size(); i++){
+            if (!tryAdd(gifts.get(i))){
+                throw new RuntimeException("Can not insert in group!!");
+            }
+        }
     }
 
     public boolean tryAdd(Gift g) {

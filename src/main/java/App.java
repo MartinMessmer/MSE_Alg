@@ -1,4 +1,5 @@
 import algorithm.Algorithm;
+import algorithm.FindCentroidAlgorithm;
 import algorithm.RandomAlgorithm;
 import trips.Trip;
 import trips.TripSolutionCounter;
@@ -12,13 +13,14 @@ public class App {
         System.out.println("Hello!");
 
         Algorithm algorithm;
-        algorithm = new RandomAlgorithm();
+        //algorithm = new RandomAlgorithm();
+        algorithm = new FindCentroidAlgorithm(50);
         algorithm.Run();
 
         List<Trip> trips = algorithm.GetSolution();
         TripSolutionCounter counter = new TripSolutionMetricCalculator().calculateFromTrip(trips);
-        System.out.println("weariness: " + counter.weariness);
-        System.out.println("distance: " + counter.distance);
-        System.out.println("#tours: " + counter.countTours);
+        System.out.println(String.format("weariness: %,d", counter.weariness));
+        System.out.println(String.format("distance: %,d", counter.distance));
+        System.out.println(String.format("#tours: %,d",  counter.countTours));
     }
 }
