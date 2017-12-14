@@ -10,7 +10,7 @@ import java.util.*;
 public class CalculateSampleTourApp {
     public static void main(String[] args){
         List<Gift> gifts = CompetitionData.getGifts();
-        TripSolutionCounter counter = new TripSolutionMetricCalculator(gifts).calculate(CompetitionData.sampleSolution());
+        TripSolutionCounter counter = new TripSolutionMetricCalculator(gifts).calculateFromGift(CompetitionData.sampleSolution());
 
         System.out.println("weariness: " + counter.weariness);
         System.out.println("distance: " + counter.distance);

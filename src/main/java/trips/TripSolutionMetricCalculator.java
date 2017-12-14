@@ -15,7 +15,19 @@ public class TripSolutionMetricCalculator {
                 .collect(Collectors.toMap(Gift::GiftId, Function.identity()));
     }
 
-    public TripSolutionCounter calculate(List<GiftWithTrip> solution){
+
+    public TripSolutionCounter calculateFromTrip(List<Trip> solution) {
+        final TripSolutionCounter counter = new TripSolutionCounter();
+        solution.forEach(trip -> {
+            counter.countTours++;
+            TripInfo info = trip.getTripInfo();
+            counter.weariness += info.Weariness;
+            counter.distance += info.Distance;
+        });
+        return counter;
+    }
+
+    public TripSolutionCounter calculateFromGift(List<GiftWithTrip> solution){
         List<Trip> trips = solution
                 .stream()
                 .collect(Collectors.groupingBy(GiftWithTrip::TripId))
@@ -30,13 +42,6 @@ public class TripSolutionMetricCalculator {
                 })
                 .collect(Collectors.toList());
 
-        final TripSolutionCounter counter = new TripSolutionCounter();
-        trips.forEach(trip -> {
-            counter.countTours++;
-            TripInfo info = trip.getTripInfo();
-            counter.weariness += info.Weariness;
-            counter.distance += info.Distance;
-        });
-        return counter;
+        return calculateFromTrip(trips);
     }
 }
