@@ -13,7 +13,7 @@ import others.HaversineDistanceCalculator;
 // untested!
 public class Trip {
     private final List<Gift> gifts;
-    private final int id;
+    public final int id;
 
     public Trip(int id) {
         this(id, new LinkedList<>());

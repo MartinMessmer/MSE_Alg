@@ -1,6 +1,7 @@
 package trips;
 
 import Gift.Gift;
+import data.Constraints;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,16 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class TripSolutionMetricCalculator {
+    public final boolean throwExceptionForInvalidData;
+
+    public TripSolutionMetricCalculator() {
+        this(true);
+    }
+
+    public TripSolutionMetricCalculator(boolean throwExceptionForInvalidData){
+        this.throwExceptionForInvalidData = throwExceptionForInvalidData;
+    }
+
     public TripSolutionCounter calculateFromTrip(List<Trip> solution) {
         final TripSolutionCounter counter = new TripSolutionCounter();
         solution.forEach(trip -> {
@@ -15,6 +26,13 @@ public class TripSolutionMetricCalculator {
             TripInfo info = trip.getTripInfo();
             counter.weariness += info.Weariness;
             counter.distance += info.Distance;
+
+            if (info.Weight > Constraints.SleighsTotalWeightLimit) {
+                System.out.format("WARNING!: Trip #%d exceeds weight limit (%f)%n", trip.id, info.Weight);
+                if (throwExceptionForInvalidData){
+                    throw new RuntimeException("slighs weight exceeded: you have killed one of santas reindeer!");
+                }
+            }
         });
         return counter;
     }
