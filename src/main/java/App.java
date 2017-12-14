@@ -1,13 +1,33 @@
+import algorithm.Algorithm;
+import algorithm.RandomAlgorithm;
 import data.FileService;
 import Gift.Gift;
 import data.GiftsLoader;
+import trips.Trip;
+import trips.TripSolutionCalculator;
+import trips.TripSolutionCounter;
 
 import java.util.List;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Hello!");
-        testFileServiceAndGiftLoader();
+        //testFileServiceAndGiftLoader();
+
+        Algorithm algorithm;
+        algorithm = new RandomAlgorithm();
+        algorithm.Run();
+
+        List<Trip> trips = algorithm.GetSolution();
+        TripSolutionCounter counter = new TripSolutionCalculator(gifts).calculate();
+        System.out.println("weariness: " + counter.weariness);
+        System.out.println("distance: " + counter.distance);
+        System.out.println("#tours: " + counter.countTours);
+
+
+
+
+
     }
 
     private static void testFileServiceAndGiftLoader() {
