@@ -1,19 +1,16 @@
-package algorithm;
+package strategies;
 
 import Gift.Gift;
-import data.Constraints;
 import trips.Trip;
+
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
-public class RandomAlgorithm extends Algorithm{
-
-    public RandomAlgorithm(){
-        super();
-        System.out.println("************** Starting Random Algorithm *************");
-    }
-
+public class RandomStrategy implements Strategy {
     @Override
-    public void Run() {
+    public List<Trip> calculateSolution(List<Gift> gifts) {
+        List<Trip> trips = new LinkedList<>();
         Trip actualTrip = new Trip(trips.size());
         Random random = new Random();
 
@@ -23,10 +20,12 @@ public class RandomAlgorithm extends Algorithm{
             if (!actualTrip.tryAdd(actualGift)){
                 trips.add(actualTrip);
                 actualTrip = new Trip(trips.size());
+                actualTrip.tryAdd(actualGift); // should always work because its a new trip
             }
             gifts.remove(actualGift);
         }
 
+        // todo: hm... why we need this here?
         // insert last Gift
         actualGift = gifts.get(0);
         if (!actualTrip.tryAdd(actualGift)){
@@ -35,6 +34,6 @@ public class RandomAlgorithm extends Algorithm{
         }
         trips.add(actualTrip);
 
-        System.out.println("******************* End Random Algorithm ******************");
+        return trips;
     }
 }

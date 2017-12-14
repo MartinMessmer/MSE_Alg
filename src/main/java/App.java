@@ -1,26 +1,18 @@
-import algorithm.Algorithm;
-import algorithm.FindCentroidAlgorithm;
-import algorithm.RandomAlgorithm;
-import trips.Trip;
-import trips.TripSolutionCounter;
-import trips.TripSolutionMetricCalculator;
-
-import java.util.List;
+import strategies.HalfingWithCentroidsStrategy;
+import strategies.RandomStrategy;
+import strategies.Strategy;
+import strategies.StrategyExecuter;
 
 public class App {
     public static void main(String[] args) {
         // demo: reading gifts -> see demo/ShowGiftsApp
-        System.out.println("Hello!");
+        System.out.println("team rocket - santa trips solution");
+        System.out.println("**********************************");
 
-        Algorithm algorithm;
-        //algorithm = new RandomAlgorithm();
-        algorithm = new FindCentroidAlgorithm(50);
-        algorithm.Run();
+        // choose strategy
+        //Strategy strategy = new RandomStrategy();
+        Strategy strategy = new HalfingWithCentroidsStrategy();
 
-        List<Trip> trips = algorithm.GetSolution();
-        TripSolutionCounter counter = new TripSolutionMetricCalculator().calculateFromTrip(trips);
-        System.out.println(String.format("weariness: %,d", counter.weariness));
-        System.out.println(String.format("distance: %,d", counter.distance));
-        System.out.println(String.format("#tours: %,d",  counter.countTours));
+        new StrategyExecuter().execute(strategy);
     }
 }
