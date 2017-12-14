@@ -1,6 +1,6 @@
 package strategies;
 
-import Gift.Gift;
+import gifts.Gift;
 import trips.Trip;
 
 import java.util.List;

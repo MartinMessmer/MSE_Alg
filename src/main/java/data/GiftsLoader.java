@@ -1,7 +1,7 @@
 package data;
 
-import Gift.Coordinate;
-import Gift.Gift;
+import gifts.Coordinate;
+import gifts.Gift;
 
 import java.util.ArrayList;
 import java.util.List;

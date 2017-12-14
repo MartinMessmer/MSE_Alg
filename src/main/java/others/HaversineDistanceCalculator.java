@@ -1,6 +1,6 @@
 package others;
 
-import Gift.Coordinate;
+import gifts.Coordinate;
 import net.jafama.FastMath;
 
 public class HaversineDistanceCalculator {

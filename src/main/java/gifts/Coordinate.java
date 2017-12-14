@@ -1,4 +1,4 @@
-package Gift;
+package gifts;
 
 public class Coordinate {
     public final double latitude;

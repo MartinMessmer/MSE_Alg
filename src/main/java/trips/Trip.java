@@ -1,14 +1,13 @@
 package trips;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import data.Constraints;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import Gift.Coordinate;
-import Gift.Gift;
+import gifts.Coordinate;
+import gifts.Gift;
 import others.HaversineDistanceCalculator;
 
 // untested!

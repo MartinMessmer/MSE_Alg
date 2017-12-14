@@ -1,6 +1,6 @@
 package strategies;
 
-import Gift.Gift;
+import gifts.Gift;
 import data.CompetitionData;
 import trips.Trip;
 import trips.TripSolutionCounter;

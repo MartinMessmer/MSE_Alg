@@ -1,6 +1,6 @@
 package data;
 
-import Gift.Gift;
+import gifts.Gift;
 import trips.GiftWithTrip;
 
 import java.util.List;

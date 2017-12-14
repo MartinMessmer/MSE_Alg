@@ -1,6 +1,6 @@
 package demo;
 
-import Gift.Gift;
+import gifts.Gift;
 import data.CompetitionData;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package trips;
 
-import Gift.Gift;
+import gifts.Gift;
 import data.Constraints;
 
 import java.util.List;

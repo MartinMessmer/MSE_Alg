@@ -1,6 +1,6 @@
 package strategies;
 
-import Gift.Gift;
+import gifts.Gift;
 import trips.Trip;
 
 import java.util.LinkedList;
@@ -26,7 +26,7 @@ public class RandomStrategy implements Strategy {
         }
 
         // todo: hm... why we need this here?
-        // insert last Gift
+        // insert last gifts
         actualGift = gifts.get(0);
         if (!actualTrip.tryAdd(actualGift)){
             trips.add(actualTrip);

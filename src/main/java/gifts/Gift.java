@@ -1,4 +1,4 @@
-package Gift;
+package gifts;
 
 public class Gift {
     public final int id;

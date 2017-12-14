@@ -1,11 +1,7 @@
 package algorithm;
 
-import Gift.Coordinate;
-import Gift.Gift;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
-import data.Constraints;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-import trips.Trip;
+import gifts.Coordinate;
+import gifts.Gift;
 
 import java.util.LinkedList;
 import java.util.List;

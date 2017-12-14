@@ -1,6 +1,6 @@
 package strategies;
 
-import Gift.Gift;
+import gifts.Gift;
 import algorithm.FindCentroidAlgorithm;
 import data.Constraints;
 import trips.Trip;

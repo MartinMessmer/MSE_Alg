@@ -1,7 +1,7 @@
 package demo;
 
 import data.CompetitionData;
-import Gift.Gift;
+import gifts.Gift;
 import trips.TripSolutionMetricCalculator;
 import trips.TripSolutionCounter;
 
