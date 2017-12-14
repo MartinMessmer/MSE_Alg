@@ -1,4 +1,4 @@
-package sample;
+package demo;
 
 import data.CompetitionData;
 import Gift.Gift;
