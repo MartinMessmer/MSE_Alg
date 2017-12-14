@@ -1,7 +1,11 @@
+import pathOptimizer.GreedyShortestPathOptimizer;
+import pathOptimizer.PathOptimizer;
 import strategies.HalfingWithCentroidsStrategy;
 import strategies.RandomStrategy;
 import strategies.Strategy;
 import strategies.StrategyExecuter;
+
+import java.util.Optional;
 
 public class App {
     public static void main(String[] args) {
@@ -13,6 +17,13 @@ public class App {
         //Strategy strategy = new RandomStrategy();
         Strategy strategy = new HalfingWithCentroidsStrategy();
 
-        new StrategyExecuter().execute(strategy);
+        // choose path optimization algorithm (optimize path within the tour)
+        //PathOptimizer pathOptimizer = null;
+        PathOptimizer pathOptimizer = new GreedyShortestPathOptimizer();
+
+
+        new StrategyExecuter().execute(
+                strategy,
+                pathOptimizer == null ? Optional.empty() : Optional.of(pathOptimizer));
     }
 }

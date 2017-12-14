@@ -20,13 +20,13 @@ public class Trip {
         this(id, new LinkedList<>());
     }
 
-    public Trip(int id, List<Gift> gifts) {
+    public Trip(int id, List<Gift> insertedGifts) {
         this.gifts = new LinkedList<>();
-        //this.gifts = gifts;
         this.id = id;
         this.weight = Constraints.SleighsWeight;
-        for( int i = 0 ; i < gifts.size(); i++){
-            if (!tryAdd(gifts.get(i))){
+
+        for( int i = 0 ; i < insertedGifts.size(); i++){
+            if (!tryAdd(insertedGifts.get(i))){
                 throw new RuntimeException("Can not insert in group!!");
             }
         }
