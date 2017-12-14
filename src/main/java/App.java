@@ -27,5 +27,6 @@ public class App {
 
         // todo 1: use SolutionChanger interface to implement algorithm which modify a give solution
         // todo 2: create a meta heuristic which use different SolutionChanger to find better solution
+        // note: we may have to implement a NeighbourTourFinder which enumerate existing tours near a give point
     }
 }
