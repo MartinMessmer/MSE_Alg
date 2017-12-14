@@ -17,19 +17,22 @@ public class RandomAlgorithm extends Algorithm{
         Trip actualTrip = new Trip(trips.size());
         Random random = new Random();
 
+        Gift actualGift;
         while (gifts.size() > 1){
-            Gift actualGift = gifts.get(random.nextInt(gifts.size() - 1));
-
-            if (actualTrip.getTripInfo().Weight + actualGift.weight > Constraints.SleighsTotalWeightLimit){
+            actualGift = gifts.get(random.nextInt(gifts.size() - 1));
+            if (!actualTrip.tryAdd(actualGift)){
                 trips.add(actualTrip);
                 actualTrip = new Trip(trips.size());
             }
-            actualTrip.add(actualGift);
             gifts.remove(actualGift);
         }
 
-        // Insert last Gift
-        actualTrip.add(gifts.get(0));
+        // insert last Gift
+        actualGift = gifts.get(0);
+        if (!actualTrip.tryAdd(actualGift)){
+            trips.add(actualTrip);
+            actualTrip = new Trip(trips.size());
+        }
         trips.add(actualTrip);
 
         System.out.println("******************* End Random Algorithm ******************");

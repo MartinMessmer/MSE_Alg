@@ -14,6 +14,7 @@ import others.HaversineDistanceCalculator;
 public class Trip {
     private final List<Gift> gifts;
     public final int id;
+    private double weight;
 
     public Trip(int id) {
         this(id, new LinkedList<>());
