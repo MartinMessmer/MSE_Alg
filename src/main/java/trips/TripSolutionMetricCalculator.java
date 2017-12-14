@@ -8,14 +8,6 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class TripSolutionMetricCalculator {
-    private final Map<Integer, Gift> giftsById;
-
-    public TripSolutionMetricCalculator(List<Gift> gifts){
-        this.giftsById = gifts.stream()
-                .collect(Collectors.toMap(Gift::GiftId, Function.identity()));
-    }
-
-
     public TripSolutionCounter calculateFromTrip(List<Trip> solution) {
         final TripSolutionCounter counter = new TripSolutionCounter();
         solution.forEach(trip -> {
@@ -27,7 +19,10 @@ public class TripSolutionMetricCalculator {
         return counter;
     }
 
-    public TripSolutionCounter calculateFromGift(List<GiftWithTrip> solution){
+    public TripSolutionCounter calculateFromGift(List<GiftWithTrip> solution, List<Gift> gifts){
+        final Map<Integer, Gift> giftsById = gifts.stream()
+                .collect(Collectors.toMap(Gift::GiftId, Function.identity()));
+
         List<Trip> trips = solution
                 .stream()
                 .collect(Collectors.groupingBy(GiftWithTrip::TripId))
