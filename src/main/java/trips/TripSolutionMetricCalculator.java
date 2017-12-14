@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class TripSolutionCalculator {
+public class TripSolutionMetricCalculator {
     private final Map<Integer, Gift> giftsById;
 
-    public TripSolutionCalculator(List<Gift> gifts){
+    public TripSolutionMetricCalculator(List<Gift> gifts){
         this.giftsById = gifts.stream()
                 .collect(Collectors.toMap(Gift::GiftId, Function.identity()));
     }
