@@ -26,6 +26,7 @@ public class Trip {
 
     public void add(Gift g) {
         gifts.add(g);
+        g.setTourId(this.id);
     }
 
     public void remove(Gift g){

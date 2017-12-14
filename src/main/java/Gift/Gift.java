@@ -16,5 +16,9 @@ public class Gift {
     public int TourId(){
         return tourId;
     }
+
+    public void setTourId(int tourId){
+        this.tourId = tourId;
+    }
     public int GiftId() { return id;}
 }
