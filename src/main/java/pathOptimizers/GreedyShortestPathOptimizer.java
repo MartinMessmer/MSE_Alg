@@ -1,9 +1,8 @@
-package pathOptimizer;
+package pathOptimizers;
 
 import data.Constraints;
 import gifts.Coordinate;
 import gifts.Gift;
-import trips.Trip;
 
 import java.util.Comparator;
 import java.util.LinkedList;

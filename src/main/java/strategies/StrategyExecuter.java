@@ -2,8 +2,7 @@ package strategies;
 
 import gifts.Gift;
 import data.CompetitionData;
-import pathOptimizer.GreedyShortestPathOptimizer;
-import pathOptimizer.PathOptimizer;
+import pathOptimizers.PathOptimizer;
 import trips.Trip;
 import trips.TripSolutionCounter;
 import trips.TripSolutionMetricCalculator;

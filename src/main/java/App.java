@@ -1,7 +1,6 @@
-import pathOptimizer.GreedyShortestPathOptimizer;
-import pathOptimizer.PathOptimizer;
+import pathOptimizers.GreedyShortestPathOptimizer;
+import pathOptimizers.PathOptimizer;
 import strategies.HalfingWithCentroidsStrategy;
-import strategies.RandomStrategy;
 import strategies.Strategy;
 import strategies.StrategyExecuter;
 
@@ -18,7 +17,7 @@ public class App {
         Strategy strategy = new HalfingWithCentroidsStrategy();
 
         // choose path optimization algorithm (optimize path within the tour)
-        //PathOptimizer pathOptimizer = null;
+        //PathOptimizer pathOptimizers = null;
         PathOptimizer pathOptimizer = new GreedyShortestPathOptimizer();
 
 

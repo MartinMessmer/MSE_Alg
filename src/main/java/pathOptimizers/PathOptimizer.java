@@ -1,7 +1,6 @@
-package pathOptimizer;
+package pathOptimizers;
 
 import gifts.Gift;
-import trips.Trip;
 
 import java.util.List;
 
