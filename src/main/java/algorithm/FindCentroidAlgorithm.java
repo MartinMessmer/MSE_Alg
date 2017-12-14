@@ -1,4 +1,4 @@
-package others;
+package algorithm;
 
 import Gift.Coordinate;
 import Gift.Gift;
