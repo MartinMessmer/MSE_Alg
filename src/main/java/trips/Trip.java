@@ -1,5 +1,6 @@
 package trips;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import data.Constraints;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,6 +15,7 @@ import others.HaversineDistanceCalculator;
 public class Trip {
     private final List<Gift> gifts;
     private final int id;
+    private double weight;
 
     public Trip(int id) {
         this(id, new LinkedList<>());
@@ -22,15 +24,23 @@ public class Trip {
     public Trip(int id, List<Gift> gifts) {
         this.gifts = gifts;
         this.id = id;
+        this.weight = Constraints.SleighsWeight;
     }
 
-    public void add(Gift g) {
-        gifts.add(g);
-        g.setTourId(this.id);
+    public boolean tryAdd(Gift g) {
+        if (this.weight + g.weight > Constraints.SleighsTotalWeightLimit){
+            return false;
+        } else {
+            gifts.add(g);
+            g.setTourId(this.id);
+            this.weight += g.weight;
+            return true;
+        }
     }
 
     public void remove(Gift g){
         gifts.remove(g);
+        this.weight -= g.weight;
     }
 
     public List<Gift> getAll() {
@@ -38,7 +48,7 @@ public class Trip {
     }
 
     public TripInfo getTripInfo() {
-        final double totalWeight = gifts.stream().mapToDouble(g -> g.weight).sum() + Constraints.SleighsWeight;
+        final double totalWeight = this.weight;
         double currentWeight = totalWeight;
 
         double distance = 0;
@@ -66,6 +76,5 @@ public class Trip {
                 weariness,
                 totalWeight
         );
-
     }
 }
