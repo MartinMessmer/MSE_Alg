@@ -15,21 +15,20 @@ public class StrategyExecuter {
     private final List<Gift> gifts = CompetitionData.getGifts();
     private final CustomTimer customTimer = new CustomTimer();
 
-    public void execute(Strategy strategy, Optional<PathOptimizer> pathOptimizer) {
+    public void execute(Strategy strategy, List<PathOptimizer> pathOptimizers) {
         System.out.format("execute strategy: %s ... %n", strategy.getClass().getSimpleName());
         customTimer.tick();
         List<Trip> trips = strategy.calculateSolution(gifts);
         printTripMetrics(trips, customTimer.tock());
 
-
-        if (pathOptimizer.isPresent()) {
+        for (PathOptimizer optimizer: pathOptimizers) {
             System.out.println("");
             System.out.println("");
-            runPathOptimization(trips, pathOptimizer.get());
+            trips = runPathOptimization(trips, optimizer);
         }
     }
 
-    private void runPathOptimization(List<Trip> trips, PathOptimizer pathOptimizer){
+    private List<Trip> runPathOptimization(List<Trip> trips, PathOptimizer pathOptimizer){
         // path optimization
         System.out.format("running path optimization %s... %n", pathOptimizer.getClass().getSimpleName());
         List<Trip> reorderedTrips = new LinkedList<>();
@@ -40,6 +39,7 @@ public class StrategyExecuter {
         }
 
         printTripMetrics(reorderedTrips, customTimer.tock());
+        return reorderedTrips;
     }
 
     private void printTripMetrics(List<Trip> trips, long processingTimeMillis) {

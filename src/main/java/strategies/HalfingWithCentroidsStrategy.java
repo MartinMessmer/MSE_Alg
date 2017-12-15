@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class HalfingWithCentroidsStrategy implements Strategy {
-    private final FindCentroidAlgorithm centroidFinder = new FindCentroidAlgorithm(50);
+    private final FindCentroidAlgorithm centroidFinder = new FindCentroidAlgorithm(20);
 
     @Override
     public List<Trip> calculateSolution(List<Gift> gifts) {
