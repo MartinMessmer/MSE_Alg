@@ -52,6 +52,8 @@ public class Trip {
         return new ArrayList<>(gifts);
     }
 
+    public int size(){ return gifts.size(); }
+
     public TripInfo getTripInfo() {
         final double totalWeight = this.weight;
         double currentWeight = totalWeight;
